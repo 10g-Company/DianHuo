@@ -1,0 +1,78 @@
+:root{
+    --phone-border-radius: 3.5vh;
+}
+
+.smartphone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 70vh; /* default size: 600px/650 */
+}
+
+.smartphone-frame {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: var(--phone-border-radius);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    z-index: 30;
+}
+
+.smartphone-notch-pill {
+    width: 1.6vh; /* Width of the pill-shaped notch {16px} */
+    height: 1.6vh; /* Height of the pill-shaped notch */
+    background-color: #000;
+    border-radius: 1.6vh;
+    position: absolute;
+    top: 1.8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.smartphone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    border-radius: var(--phone-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.smartphone-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Use cover to fill the screen */
+    display: block;
+    border-radius: var(--phone-border-radius);
+    padding: 0.8vh;
+}
+
+@media (max-width: 768px) {
+    :root {
+        /* New value for screens up to 768px wide */
+        --phone-border-radius: 2.7vh;
+    }
+
+    .smartphone-container {
+        height: 50vh;
+    }
+
+    .smartphone-frame {
+        /*border-radius: 20px;*/
+    }
+
+    .smartphone-notch-pill {
+        width: 1.3vh;  
+        height: 1.3vh; 
+        top: 1.9%;
+    }
+
+    .smartphone-media{
+        padding: 0.6vh;
+    }
+}

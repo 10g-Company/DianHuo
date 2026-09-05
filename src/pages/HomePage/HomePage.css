@@ -1,0 +1,23 @@
+﻿.altcolor {
+    font-size: 1.15em;
+}
+
+    .altcolor:nth-child(even) {
+        background-color: var(--page-background);
+    }
+
+    .altcolor:nth-child(odd) {
+        background-color: var(--page-background-alt);
+    }
+
+.feature-section {
+    min-height: 100vh;
+}
+
+ul.check-list{
+    gap: 1.2em;
+}
+
+#help{
+    justify-content: space-evenly;
+}

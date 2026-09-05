@@ -3,15 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://10g-Company.github.io/DianHuo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "deploy": "gh-pages -d docs",
+    "predeploy": "npm run build",
+    "postbuild": "copy docs\\index.html docs\\404.html && copy changelog.md docs\\"
   },
   "dependencies": {
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -22,6 +26,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.4",
     "globals": "^17.11.0",
-    "vite": "^8.2.2"
+    "sharp": "^0.35.4",
+    "vite": "^8.2.2",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-static-copy": "^4.1.1"
   }
 }

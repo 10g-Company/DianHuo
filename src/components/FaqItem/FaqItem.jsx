@@ -1,0 +1,39 @@
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import './FaqItem.css';
+import { FaPlus, FaMinus } from "react-icons/fa";
+
+const FaqItem = ({id, question, children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
+    // Open automatically if page loads or navigates with a hash
+    useEffect(() => {
+        if (location.hash === `#${id}`) {
+            setIsOpen(true);
+            // DO NOT need below. Replaced with `ScrollToAnchor`
+            //const el = document.getElementById(id);
+            //if (el) {
+            //    el.scrollIntoView({ behavior: "smooth", block: "start" });
+            //}
+        }
+    }, [location.hash, id]);
+
+    return (
+        <div id={id} className="faq-item">
+            {/* Entire question row is clickable */}
+            <div className="faq-question" onClick={() => setIsOpen(!isOpen)}>
+                <span>{question}</span>
+                {isOpen ? (
+                    <FaMinus className="faq-icon" />
+                ) : (
+                    <FaPlus className="faq-icon" />
+                )}
+            </div>
+
+            {isOpen && <div className="faq-answer">{children}</div>}
+        </div>
+    );
+};
+
+export default FaqItem;
