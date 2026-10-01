@@ -9,7 +9,7 @@ const Note = ({ id, children }) => {
             <div id={id} className="note-container">
 
                 <div className="note-icon-container">
-                    <FaInfoCircle className="react-icons" />NOTE:
+                    <FaInfoCircle className="react-icons" /> NOTE:
                 </div>
 
                 <div>

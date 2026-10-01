@@ -13,7 +13,7 @@ const SmartphoneFrame = ({ media, height }) => {
     return (
         <div className="smartphone-container" style={{ height: height }}>
             <div className="smartphone-frame">
-                <div className="smartphone-notch-pill"></div>
+                {/* <div className="smartphone-notch-pill"></div> */}
 
                 {/*<div className="smartphone-volume-up"></div>*/}
                 {/*<div className="smartphone-volume-down"></div>*/}

@@ -1,0 +1,92 @@
+.ita {
+    font-size: 0.9rem;
+}
+
+.ita__title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin: 0 0 0.5rem;
+}
+
+.ita__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ita__link {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    color: #0066cc;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+    .ita__link:hover {
+        background-color: #f0f0f0;
+        text-decoration: underline;
+    }
+
+/* --- Sidebar variant --- */
+.ita--sidebar {
+    grid-area: ita;
+    position: sticky;
+    top: var(--header-height);
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1rem 0;
+}
+
+    .ita--sidebar .ita__list {
+        border-left: 2px solid #e0e0e0;
+    }
+
+    .ita--sidebar .ita__link {
+        border-left: 2px solid transparent;
+        margin-left: -2px;
+        padding-left: 0.75rem;
+    }
+
+    .ita--sidebar .ita__link--active {
+        color: #005a9e;
+        font-weight: 600;
+        border-left-color: #005a9e;
+    }
+
+/* --- Top variant --- */
+.ita--top {
+    grid-area: ita;
+    justify-self: start; /* don't stretch horizontally */
+    width: fit-content; /* shrink to content */
+    max-width: 100%; /* but never overflow the column */
+
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: #fafafa;
+    margin-bottom: 1.5rem;
+}
+
+    .ita--top .ita__link {
+        padding: 0.4rem 0.5rem;
+    }
+
+.ita__toggle {
+    margin-top: 0.5rem;
+    background: none;
+    border: none;
+    color: #0066cc;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    text-decoration: underline;
+}
+
+    .ita__toggle:hover {
+        color: #005a9e;
+    }

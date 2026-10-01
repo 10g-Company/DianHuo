@@ -2,7 +2,6 @@
     background-color: var(--dark-gray);
     color: #fff;
     padding: 1.5rem;
-    padding-bottom:1rem;
     text-align: center;
     width: 100vw; /* Ensure full viewport width */
     box-sizing: border-box; /* Include padding in the width calculation */

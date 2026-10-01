@@ -1,0 +1,13 @@
+.download-badge {
+    display: inline-block;
+    height: 3rem;
+
+    figure{
+        height: 100%;
+
+        img{
+            height: 100%;
+            border: 0;
+        }
+    }
+}

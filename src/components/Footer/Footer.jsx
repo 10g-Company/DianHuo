@@ -19,15 +19,14 @@ function Footer() {
         <>
             <footer className="footer">
                 <div className="footer-links">
-                    <Link to="/faq#about-us">About Us</Link>
+                    <Link to="/about-us">About Us</Link>
                     <a href="changelog.html">What's New</a>
-                    <Link to="/faq">FAQ</Link>
                     <Link to="/privacy">Privacy Policy</Link>
                     <Link to="/tnc">Terms & Conditions</Link>
                     <Link to="/#help">Contact Us</Link>
                 </div>
-                <p className="trademark">&copy; 2019 10g Company Pte. Ltd. All rights reserved.</p>
-                <p className="trademark">DianHuo&#8482; is a trademark of 10g Company Pte. Ltd.</p>
+                <p className="trademark my-0">&copy; 2019 10g Company Pte. Ltd. All rights reserved.</p>
+                <p className="trademark my-0">DianHuo&#8482; is a trademark of 10g Company Pte. Ltd.</p>
             </footer>
         </>
     );

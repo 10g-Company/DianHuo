@@ -1,0 +1,140 @@
+:root {
+    --fancylayout-min-height: 80vh;
+}
+
+.fancy-layout {
+    position: relative;
+    width: 100%;
+    min-height: var(--fancylayout-min-height);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        min-height: 100%;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ← CHANGED: color2 is now the BASE background, and color1 is
+   drawn on top via ::before. This swap is required so that
+   color1 can animate "filling in" over color2.
+   ───────────────────────────────────────────────────────────── */
+.fancy-layout__background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: var(--color2);
+}
+
+/*
+  The slanted color1 layer.
+  Uses a full-size box with the slant clip-path, and animates the
+  horizontal extent from a zero-width center strip outward.
+*/
+.fancy-layout__color1 {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color1);
+    clip-path: polygon(0 0, 33.33% 0, 66.66% 100%, 0 100%);
+    transform-origin: center center;
+    transform: scaleX(1); /* default: fully visible */
+}
+
+.fancy-layout.reversed .fancy-layout__color1 {
+    clip-path: polygon(0 0, 66.66% 0, 33.33% 100%, 0 100%);
+}
+
+.fancy-layout__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    min-height: var(--fancylayout-min-height);
+}
+
+.fancy-layout__col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+/* Default: text left, image right */
+.fancy-layout__text-col {
+    order: 1;
+}
+
+.fancy-layout__img-col {
+    order: 2;
+}
+/* Reversed: image left, text right */
+.fancy-layout.reversed .fancy-layout__text-col {
+    order: 2;
+}
+
+.fancy-layout.reversed .fancy-layout__img-col {
+    order: 1;
+}
+
+/* =====================================================================
+   ANIMATION
+   ===================================================================== */
+
+.fancy-layout.animate {
+    --fl-text-delay: 500ms; /* was effectively 0 — bump this up */
+    --fl-fill-delay: 600ms;
+    --fl-img-delay: 1000ms;
+}
+
+/* Initial hidden states when animation is enabled */
+.fancy-layout.animate .fancy-layout__color1 {
+    transform: scaleX(0);
+    transition: transform 700ms ease-out var(--fl-fill-delay);
+}
+
+.fancy-layout.animate .fancy-layout__text-col {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1000ms ease-out var(--fl-text-delay), 
+                transform 1000ms ease-out var(--fl-text-delay);
+}
+
+.fancy-layout.animate .fancy-layout__img-col {
+    opacity: 0;
+    transform: translateY(-60px);
+    transition: opacity 600ms ease-out var(--fl-img-delay), 
+                transform 600ms ease-out var(--fl-img-delay);
+}
+
+/* Final states when in view */
+.fancy-layout.animate.is-in-view .fancy-layout__text-col {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fancy-layout.animate.is-in-view .fancy-layout__color1 {
+    transform: scaleX(1);
+}
+
+.fancy-layout.animate.is-in-view .fancy-layout__img-col {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile view: text on top, image on bottom — background stays the same */
+@media (max-width: 768px) {
+    .fancy-layout__content {
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .fancy-layout__text-col {
+        order: 1 !important;
+        text-align: center;
+    }
+
+    .fancy-layout__img-col {
+        order: 2 !important;
+    }
+    /* Background (including the slanted divider) intentionally unchanged. */
+}

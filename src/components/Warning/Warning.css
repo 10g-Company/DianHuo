@@ -7,7 +7,10 @@
 }
 
 .warning-icon-container {
+    display: flex;
+    align-items: center;
     font-weight: bold;
+    font-size: 1.2rem;
     color: darkred;
     margin-bottom: 0.3em;
 }

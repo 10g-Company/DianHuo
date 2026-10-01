@@ -9,7 +9,7 @@ const Warning = ({ id, children }) => {
             <div id={id} className="warning-container">
 
                 <div className="warning-icon-container">
-                    <TiWarning className="react-icons" />Warning:
+                    <TiWarning className="react-icons" style={{height:'1.2em', width:'1.2em'}} /> Warning:
                 </div>
 
                 <div className="warning-child">

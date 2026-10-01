@@ -49,7 +49,7 @@
     object-fit: cover; /* Use cover to fill the screen */
     display: block;
     border-radius: var(--phone-border-radius);
-    padding: 0.8vh;
+    padding: 0.7vh;
 }
 
 @media (max-width: 768px) {
@@ -67,12 +67,12 @@
     }
 
     .smartphone-notch-pill {
-        width: 1.3vh;  
-        height: 1.3vh; 
+        width: 1.3vh;
+        height: 1.3vh;
         top: 1.9%;
     }
 
-    .smartphone-media{
+    .smartphone-media {
         padding: 0.6vh;
     }
 }

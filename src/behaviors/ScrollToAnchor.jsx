@@ -28,7 +28,7 @@ function ScrollToAnchor() {
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                const header = document.querySelector("Header");
+                const header = document.querySelector("header");
                 const headerHeight = header ? header.offsetHeight : 0;
 
                 console.log("hash value: ", hash);

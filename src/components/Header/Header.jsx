@@ -48,13 +48,19 @@ function Header() {
                 <span className="logo-text">DianHuo</span>
             </a>
 
-            {isHomePage && (
+            {/* {isHomePage && (
                 <nav>
                     <ul className="nav-links">
                         <li><a href="#help">Help</a></li>
                     </ul>
                 </nav>
-            )}
+            )} */}
+
+            <nav>
+                <ul className={`nav-links ${isHomePage ? '': 'other-page'}`}>
+                    <li><a href="/#help">Help</a></li>
+                </ul>
+            </nav>
             
         </header>
     );

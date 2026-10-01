@@ -1,0 +1,213 @@
+/* Layout */
+:root {
+    --toc-width: 230px;
+    --toc-mobile-width: 250px;
+}
+
+.tutorial-page {
+    display: flex;
+    align-items: stretch; /* ✅ let TOC stretch to full row height */
+}
+
+ol.number-list {
+    gap: 1.5em;
+}
+
+/* ✅ Outer TOC panel: stretches with the content row, grey background to footer */
+.toc {
+    width: var(--toc-width);
+    flex-shrink: 0;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ddd;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+    /* collapsed state on desktop */
+    .toc.collapsed {
+        width: 0;
+        border-right: none;
+        overflow: hidden;
+    }
+
+/* ✅ Inner wrapper: sticky below header + own scroll */
+.toc-inner {
+    position: sticky;
+    top: var(--header-height); /* below sticky header */
+    max-height: calc(100vh - var(--header-height)); /* caps scroll area to viewport */
+    overflow-y: auto;
+    padding: 1rem 0.7rem;
+}
+
+.toc h2 {
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0.5em;
+}
+
+.toc li {
+    margin: 0.2em 0;
+    font-size: 0.97em;
+}
+
+.toc .topic {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em 0;
+}
+
+.toc ul ul {
+    padding-left: 1rem;
+}
+
+/* Active highlight */
+.topic.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    padding: 0.3em;
+}
+
+.topic .arrow {
+    margin: 0 0.5em;
+}
+
+.topic.active .arrow {
+    color: white;
+}
+
+/* Toggle button */
+.toc-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: var(--header-height);
+    left: var(--toc-width);
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--logo-blue);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: left 0.3s ease;
+}
+
+    .toc-toggle-btn.collapsed {
+        left: 0;
+    }
+
+/* article page layout */
+.article {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "ita"
+        "content";
+    /*gap: 1.5rem;*/
+    flex: 1 1 auto;
+    min-width: 0;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+}
+
+    /* Wide: content left, ITA right. */
+    .article:has(.ita--sidebar) {
+        grid-template-columns: minmax(0, 1fr) 200px; /*change the px value for the side ITA width*/
+        grid-template-areas: "content ita";
+        gap: 1.5rem;
+    }
+
+.article__content {
+    grid-area: content;
+    min-width: 0;
+
+    h1 > img {
+        display: inline-block;
+        border: none;
+        margin: 0;
+        width: 2em;
+    }
+
+    h3.sectionHeader {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        > img {
+            display: inline;
+            margin: 0;
+            border-style: none;
+            height: 3rem;
+        }
+    }
+}
+
+.article section {
+    scroll-margin-top: 80px;
+}
+
+/* Responsive */
+@media (max-width: 901px) {
+    .tutorial-page {
+        flex-direction: column;
+    }
+
+    .toc {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        height: 100%;
+        width: var(--toc-mobile-width);
+        background-color: #f7f7f7;
+        border-right: 1px solid #ddd;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+        .toc.open {
+            left: 0;
+        }
+
+        .toc.collapsed {
+            width: var(--toc-mobile-width);
+            border-right: 1px solid #ddd;
+        }
+
+    /* ✅ mobile: inner handles full-height scroll */
+    .toc-inner {
+        position: static;
+        max-height: none;
+        height: 100%;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+
+    .toc-toggle-btn {
+        top: 0.9em;
+        right: 1.5em;
+        left: auto;
+        border-radius: 4px;
+        width: auto;
+        height: auto;
+        padding: 0.5rem 0.8rem;
+        font-size: 1em;
+    }
+
+        .toc-toggle-btn.collapsed {
+            left: auto;
+            border-radius: 4px;
+        }
+
+    .content {
+        padding: 1rem;
+    }
+}

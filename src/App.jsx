@@ -1,9 +1,15 @@
 import { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './behaviors/ScrollToTop';
+
+import HomePage from './pages/HomePage/HomePage';
+import TutorialPage from './pages/TutorialPage/TutorialPage';
+import AboutUsPage from './pages/AboutUs/AboutUs';
+import PrivacyPage from './pages/Privacy/Privacy';
+import TncPage from './pages/TnC/TnC';
 
 function App() {
     useEffect(() => {
@@ -19,6 +25,10 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/tutorial" element={<TutorialPage />} />
+                <Route path="/about-us" element={<AboutUsPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/tnc" element={<TncPage />} />
             </Routes>
 
             <Footer />
