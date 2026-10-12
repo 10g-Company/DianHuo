@@ -49,7 +49,7 @@
 -----
 ### Version: 1.3.0 
 #### (2021-05-18 0845 UTC)
-1. ==**[Breaking-Change]**== Target Android 11 with Scoped Storage security implementation. Dian Huo app will now only be allowed to it’s app and user-chosen storage location. You will be required to select a default storage location; after the selection:
+1. <span class="breaking-change">[Breaking-Change]</span> Target Android 11 with Scoped Storage security implementation. Dian Huo app will now only be allowed to it’s app and user-chosen storage location. You will be required to select a default storage location; after the selection:
     a. All previous backup files in the old location - `/Android/data/co.TENg.DianHuo/files/Backup` - will moved to the new location
     b. Future [Backup Data] will back up to this new location
 2. [Restore Data] will allow you to select the archive file in any location on your device. It is no longer fixed only at the pre-defined location - `/Android/data/co.TENg.DianHuo/files/Backup`
@@ -71,10 +71,10 @@
 -----
 ### Version: 1.2.2 
 #### (2020-11-19 09:40 UTC)
-1. [Breaking-Change] Improved the color coding of Category. Similar text will have the same color. E.g. Drinks#Coffee and Drinks#Cans#Coffee, the word ‘Coffee’ will have the same color
+1. <span class="breaking-change">[Breaking-Change]</span> Improved the color coding of Category. Similar text will have the same color. E.g. Drinks#Coffee and Drinks#Cans#Coffee, the word ‘Coffee’ will have the same color
 
     <img width="293" height="114" alt="image" src="https://github.com/user-attachments/assets/25307ac9-0b1a-429f-8096-cf34875e9512" />
-2. [Breaking-Change] Improved security by following the Android 11 Scoped Storage enforcement. This implementation changed the location of Data backup and restore:
+2. <span class="breaking-change">[Breaking-Change]</span> Improved security by following the Android 11 Scoped Storage enforcement. This implementation changed the location of Data backup and restore:
     ```
 	Old Location: /DianHuo/Backup
 	New Location: /Android/data/co.TENg.DianHuo/files/Backup
