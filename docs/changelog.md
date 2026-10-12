@@ -60,14 +60,12 @@
 #### (2021-01-15 1230 UTC)
 1. Better display of numeric text with number separator in the thousandth-placed
 2. Better enforcement of decimal to 2 precision. Excess precision will be truncated off
-3. Enhanced the UX when entering adjustment value with larger numeric display, a clear all text button, and more informative item’s detail:
-
-
-
+3. Enhanced the UX when entering adjustment value with larger numeric display, a clear all text button, and more informative item’s detail: 
+	<br/><img width="336" height="400" alt="image" src="https://github.com/user-attachments/assets/ff5bb78c-37c8-4874-a79a-c1f5ce92430a" />
 4. Improved alert’s UI with icon and title
 5. To delete an item, it must first be disabled
-6. [View log]: when opening log, always display the latest by default
-7. [View log]: added filters to select what to view
+6. [View log] when opening log, always display the latest by default
+7. [View log] added filters to select what to view
 8. Bugs fixes and performance improvements
 
 -----
@@ -75,19 +73,20 @@
 #### (2020-11-19 09:40 UTC)
 1. [Breaking-Change] Improved the color coding of Category. Similar text will have the same color. E.g. Drinks#Coffee and Drinks#Cans#Coffee, the word ‘Coffee’ will have the same color
 
+    <img width="293" height="114" alt="image" src="https://github.com/user-attachments/assets/25307ac9-0b1a-429f-8096-cf34875e9512" />
 2. [Breaking-Change] Improved security by following the Android 11 Scoped Storage enforcement. This implementation changed the location of Data backup and restore:
     ```
 	Old Location: /DianHuo/Backup
 	New Location: /Android/data/co.TENg.DianHuo/files/Backup
 	```
-
-
 3. Replaced typing of ‘Confirm’ with ‘Slide to Confirm’:
 
-
+   <img width="329" height="76" alt="image" src="https://github.com/user-attachments/assets/643b7b78-970f-4fa1-b0db-cecd561b0a63" />
 
 4. New button to remove all disabled/deleted items in a transaction:
 
+	<img width="341" height="275" alt="image" src="https://github.com/user-attachments/assets/03636738-4f94-4039-aefc-03440f47fe84" />
+	
 5. Bugs fixes and performance improvements
 
 -----
