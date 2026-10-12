@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useIsHomePage from '../../hooks/useIsHomePage';
+import useIsPage from '../../hooks/useIsPage';
 
 /*
  * 01 set hh=true in the URL to hide the header 
@@ -10,6 +11,7 @@ function Header() {
 
     // check the current page
     const isHomePage = useIsHomePage();
+    const isTutorialPage = useIsPage('/tutorial');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,6 +36,8 @@ function Header() {
     // Get "hf" parameter from URL
     const hideHeader = params.get('hh') === "true";
 
+    const base = import.meta.env.BASE_URL; // "/DianHuo/" in prod, "/" in dev
+
     if (hideHeader) return null;
 
     return (
@@ -56,11 +60,15 @@ function Header() {
                 </nav>
             )} */}
 
-            <nav>
-                <ul className={`nav-links ${isHomePage ? '': 'other-page'}`}>
-                    <li><a href="/#help">Help</a></li>
-                </ul>
-            </nav>
+
+            {/*do not display in tutorial page*/}
+            {!isTutorialPage && (
+                <nav>
+                    <ul className={`nav-links ${isHomePage ? '' : 'other-page'}`}>
+                        <li><a href={`${base}#help`}>Help</a></li>
+                    </ul>
+                </nav>
+            )}
             
         </header>
     );
