@@ -107,7 +107,7 @@ h1.page-title {
 
         .header .nav-links a {
             text-decoration: none;
-            padding: 0.5em;
+            padding: 0.5rem;
             color: whitesmoke;
             background-color: rgba(57, 57, 57, 0.6);
             border-radius: 1em;
@@ -132,18 +132,30 @@ h1.page-title {
     align-items: center;
     text-decoration: none;
     color: #333;
-}
 
-    .logo-container img {
-        height: 30px; /* Adjust as needed */
+    img {
+        height: 2rem; /* Adjust as needed */
         margin-right: 5px;
     }
 
+    @media (max-width: 768px) {
+        img{
+            height:1.5rem;
+        }
+    }
+}
+
 .logo-text {
-    font-size: 1.5em;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--logo-blue);
+
+    @media (max-width: 768px) {
+        font-size:1.5rem;
+    }
 }
+
+
 /* --- Full-Height Intro Section --- */
 .section {
     padding: 4rem 2rem;
@@ -540,11 +552,13 @@ img.inline-icon {
     }
 
     .header {
-        padding: 0.7rem 1.5rem 0.7rem 1rem !important;
+        padding: 0.7rem 1rem !important;
+        gap:1rem;
     }
 
     .nav-links {
         gap: 1rem !important;
+        padding:0;
     }
 
     .feature-section {
