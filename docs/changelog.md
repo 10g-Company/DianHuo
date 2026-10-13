@@ -1,5 +1,12 @@
 # <u>What's New</u>
 
+### Version: 2.0.0 
+#### (Upcoming)
+1. Fresh new look - We've resesigned the interface for a cleaner, more modern experience.
+2. Updated to the latest platform and framework for better performance and compatibility.
+3. (new) Able to set QR code as SKU for item.
+
+-----
 ### Version: 1.4.24 
 #### (2025-06-02 0950 UTC)
 1. Bugs fixes
